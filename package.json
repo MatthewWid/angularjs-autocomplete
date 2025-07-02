@@ -1,0 +1,26 @@
+{
+	"name": "angularjs-autocomplete",
+	"version": "0.1.0",
+	"private": true,
+	"license": "MIT",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"preview": "vite preview",
+		"format": "biome check --linter-enabled=false --write",
+		"lint": "biome lint --write"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.0.6",
+		"@types/angular": "^1.8.9",
+		"@types/jquery": "^3.5.32",
+		"@types/node": "^24.0.10",
+		"typescript": "~5.8.3",
+		"vite": "^7.0.0"
+	},
+	"dependencies": {
+		"angular": "^1.8.3",
+		"jquery": "^3.7.1"
+	}
+}
