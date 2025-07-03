@@ -1,0 +1,29 @@
+<div class="autocomplete">
+	<input
+		type="text"
+		id="{{$ctrl.inputId}}"
+		placeholder="{{$ctrl.inputPlaceholder}}"
+		class="autocomplete__input"
+		ng-model="$ctrl.value"
+		ng-change="$ctrl.onType()"
+		ng-focus="$ctrl.isFocused = true"
+		ng-blur="$ctrl.isFocused = false"
+		role="combobox"
+		autocomplete="off"
+		aria-autocomplete="list"
+		aria-activedescendant="{{$ctrl.listId}}"
+		aria-controls="{{$ctrl.listId}}"
+		aria-owns="{{$ctrl.listId}}"
+		aria-expanded="{{$ctrl.isFocused && $ctrl.options.length > 0}}"
+	/>
+	<ul id="{{$ctrl.listId}}" class="autocomplete__list" role="listbox">
+		<li
+			role="option"
+			class="autocomplete__option"
+			ng-repeat="option in $ctrl.options"
+			ng-click="$ctrl.onSelect(option)"
+		>
+			{{ option }}
+		</li>
+	</ul>
+</div>
