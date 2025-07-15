@@ -4,13 +4,19 @@
 	"private": true,
 	"license": "MIT",
 	"type": "module",
+	"engines": {
+		"node": ">=24",
+		"pnpm": ">=10"
+	},
+	"packageManager": "pnpm@10.13.1",
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc && vite build",
 		"preview": "vite preview",
 		"check": "tsc --noEmit --project .",
 		"format": "biome check --linter-enabled=false --write",
-		"lint": "biome lint --write"
+		"lint": "biome lint --write",
+		"ci": "biome ci"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.0.6",
