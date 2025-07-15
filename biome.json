@@ -18,6 +18,9 @@
 			"recommended": true,
 			"complexity": {
 				"noUselessThisAlias": "off"
+			},
+			"nursery": {
+				"useExportsLast": "error"
 			}
 		}
 	},

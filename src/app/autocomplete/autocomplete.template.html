@@ -1,0 +1,57 @@
+<div class="autocomplete">
+	<input
+		type="text"
+		placeholder="{{$ctrl.inputPlaceholder}}"
+		class="autocomplete__input"
+		id="{{$ctrl.inputId}}"
+		ng-model="$ctrl.searchText"
+		ng-change="$ctrl.onChange()"
+		ng-click="$ctrl.isExpanded = true"
+		ng-focus="$ctrl.isExpanded = true"
+		ng-blur="$ctrl.onBlur($event)"
+		ng-keydown="$ctrl.onKeyDown($event)"
+		role="combobox"
+		autocomplete="off"
+		aria-autocomplete="list"
+		aria-activedescendant="{{$ctrl.listId}}"
+		aria-controls="{{$ctrl.listId}}"
+		aria-owns="{{$ctrl.listId}}"
+		aria-expanded="{{$ctrl.isExpanded}}"
+		scope-element="{{$ctrl.inputId}}"
+	/>
+	<button class="autocomplete__clear" ng-click="$ctrl.onClear($event)">
+		X
+	</button>
+	<div
+		class="autocomplete__suggestions"
+		role="presentation"
+		ng-hide="!$ctrl.isExpanded"
+	>
+		<p
+			class="autocomplete__empty"
+			ng-if="$ctrl.options.length === 0 && !$ctrl.isLoading"
+		>
+			Begin typing to receive suggestions.
+		</p>
+		<p class="autocomplete__loading" ng-if="$ctrl.isLoading">Loading</p>
+		<ul
+			id="{{$ctrl.listId}}"
+			class="autocomplete__list"
+			ng-if="$ctrl.options.length > 0 && !$ctrl.isLoading"
+			role="listbox"
+		>
+			<li
+				role="option"
+				class="autocomplete__option"
+				ng-repeat="option in $ctrl.options"
+				ng-mousedown="$ctrl.onSubmit($event)"
+				ng-mouseover="$ctrl.focusedOption = option"
+				data-option-id="{{option.id}}"
+				data-option-focused="{{$ctrl.focusedOption.id === option.id}}"
+				tabindex="-1"
+			>
+				{{ option.title }}
+			</li>
+		</ul>
+	</div>
+</div>
