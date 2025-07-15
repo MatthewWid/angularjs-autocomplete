@@ -66,7 +66,13 @@ function autocompleteController(
 	};
 
 	ctrl.onChange = debounceService(() => {
-		ctrl.onFetch(ctrl.searchText);
+		ctrl.isLoading = true;
+
+		ctrl.onFetch(ctrl.searchText).finally(() => {
+			$scope.$applyAsync(() => {
+				ctrl.isLoading = false;
+			});
+		});
 	}, 250);
 
 	ctrl.onClear = () => {
@@ -75,6 +81,8 @@ function autocompleteController(
 		ctrl.focusedOption = null;
 
 		$scope.scopeElements?.["autocomplete-input"]?.focus();
+
+		ctrl.onClose();
 	};
 
 	ctrl.onKeyDown = (event) => {

@@ -1,12 +1,12 @@
 <main class="app">
 	<autocomplete
-		input-placeholder="Search posts..."
 		options="$ctrl.options"
 		on-fetch="$ctrl.onFetch"
 		on-select="$ctrl.onSelect"
+		on-close="$ctrl.onClose"
 	></autocomplete>
-	<div class="post" ng-if="$ctrl.selectedOption !== null">
-		<h2 class="post__title">{{$ctrl.selectedOption.title}}</h2>
-		<p>ID: {{$ctrl.selectedOption.id}}</p>
+	<div class="post" ng-if="$ctrl.selectedProduct !== null">
+		<h2 class="post__title">{{$ctrl.selectedProduct.title}}</h2>
+		<p>ID: {{$ctrl.selectedProduct.id}}</p>
 	</div>
 </main>
