@@ -5,8 +5,8 @@
 		on-select="$ctrl.onSelect"
 		on-close="$ctrl.onClose"
 	></autocomplete>
-	<div class="post" ng-if="$ctrl.selectedProduct !== null">
-		<h2 class="post__title">{{$ctrl.selectedProduct.title}}</h2>
-		<p>ID: {{$ctrl.selectedProduct.id}}</p>
-	</div>
+	<product
+		ng-if="$ctrl.selectedProduct !== null"
+		product="$ctrl.selectedProduct"
+	></product>
 </main>

@@ -1,0 +1,16 @@
+<div class="product">
+	<div class="product__header">
+		<h2 class="product__title">{{$ctrl.product.title}}</h2>
+		<p>ID: {{$ctrl.product.id}}</p>
+	</div>
+	<img
+		src="{{$ctrl.product.thumbnail}}"
+		alt="{{$ctrl.product.title}} Thumbnail Image"
+		class="product__image"
+	/>
+	<div class="product__details">
+		<p class="product__price" aria-label="Product Price">
+			{{$ctrl.product.price | currency}}
+		</p>
+	</div>
+</div>
