@@ -13,6 +13,74 @@ Type-safe, accessible, mobile-friendly and keyboard navigable.
 
 Use arrow keys to scroll through results, Enter to select and Escape to close.
 
+## Installation
+
+Install with any package manager:
+
+```bash
+npm install @mwid/angularjs-autocomplete
+```
+
+```bash
+pnpm add @mwid/angularjs-autocomplete
+```
+
+```bash
+yarn add @mwid/angularjs-autocomplete
+```
+
+## Usage
+
+Import the module and register it as a dependency in your application:
+
+```typescript
+import { autocompleteModule } from "@mwid/angularjs-autocomplete"
+
+angular.module("myApp", [autocompleteModule.name])
+```
+
+Add the component into your template, providing the minimally required inputs:
+
+```html
+<autocomplete
+    options="$ctrl.options"
+    on-fetch="$ctrl.onFetch"
+    on-select="$ctrl.onSelect"
+    on-close="$ctrl.onClose"
+></autocomplete>
+```
+
+### Inputs
+
+Inputs are fully type-safe:
+
+```typescript
+import type { AutocompleteInputs } from "@mwid/angularjs-autocomplete"
+```
+
+They are as follows:
+
+| Name | Type | Required (Default) | Description |
+|-|-|-|-|
+| `options` | `AutocompleteOption[]` | Yes | The list of options to display in the dropdown. |
+| `onFetch` | `(query: string) => Promise<void>` | Yes | Fetch a list of suggestions to populate `options` with. |
+| `onSelect` | `(option: AutocompleteOption) => void` | Yes | Callback when an option is selected. |
+| `onClose` | `() => void` | Yes | Callback when the options list is closed. |
+| `inputId` | `string` | No (`autocomplete-input`) | ID of the [input](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input) element. |
+| `inputPlaceholder` | `string` | No (`Search...`) | [Placeholder](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/placeholder) text for the input element. |
+
+Remember that inputs are camel-cased in TypeScript and kebab-cased in templates.  
+Eg, `onFetch` translates to `on-fetch` when used in a template.
+
+`AutocompleteOption` has the following structure:
+
+```typescript
+{
+    id: number;
+    title: string;
+}
+```
+
 ## Technologies
 
 * [Angular.JS](https://angularjs.org/) for user interface interactivity
