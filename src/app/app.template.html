@@ -1,12 +1,22 @@
 <main class="app">
-	<autocomplete
-		options="$ctrl.options"
-		on-fetch="$ctrl.onFetch"
-		on-select="$ctrl.onSelect"
-		on-close="$ctrl.onClose"
-	></autocomplete>
-	<product
-		ng-if="$ctrl.selectedProduct !== null"
-		product="$ctrl.selectedProduct"
-	></product>
+	<div>
+		<autocomplete
+			options="$ctrl.options"
+			on-fetch="$ctrl.onFetch"
+			on-select="$ctrl.onSelect"
+			on-close="$ctrl.onClose"
+		></autocomplete>
+		<product
+			ng-if="$ctrl.selectedProduct !== null"
+			product="$ctrl.selectedProduct"
+		></product>
+	</div>
+	<footer class="app__footer">
+		<p>Made by <a href="https://mwid.dev/">Matt W</a></p>
+		<p>
+			<a href="https://github.com/MatthewWid/angularjs-autocomplete"
+				>See the code</a
+			>
+		</p>
+	</footer>
 </main>
