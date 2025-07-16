@@ -9,6 +9,9 @@
 		class="product__image"
 	/>
 	<div class="product__details">
+		<p class="product__description" aria-label="Product Description">
+			{{$ctrl.product.description}}
+		</p>
 		<p class="product__price" aria-label="Product Price">
 			{{$ctrl.product.price | currency}}
 		</p>
