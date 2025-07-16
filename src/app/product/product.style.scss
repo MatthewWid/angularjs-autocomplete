@@ -43,4 +43,18 @@
 		background-color: #00a800;
 		border: 1px solid #087c08;
 	}
+
+	&__placeholder {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 6em 0;
+
+		&-text {
+			padding: 0.8em;
+			font-size: 1.2em;
+			font-weight: 500;
+			color: #888;
+		}
+	}
 }

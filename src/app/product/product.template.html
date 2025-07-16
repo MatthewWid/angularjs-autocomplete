@@ -1,10 +1,10 @@
-<div class="product">
+<div class="product" ng-if="$ctrl.product">
 	<div class="product__header">
 		<h2 class="product__title">{{$ctrl.product.title}}</h2>
 		<p>ID: {{$ctrl.product.id}}</p>
 	</div>
 	<img
-		src="{{$ctrl.product.thumbnail}}"
+		src="{{$ctrl.product.thumbnail || 'https://placehold.co/400'}}"
 		alt="{{$ctrl.product.title}} Thumbnail Image"
 		class="product__image"
 	/>
@@ -16,4 +16,9 @@
 			{{$ctrl.product.price | currency}}
 		</p>
 	</div>
+</div>
+<div class="product__placeholder" ng-if="!$ctrl.product">
+	<p class="product__placeholder-text">
+		Select a product
+	</button>
 </div>
